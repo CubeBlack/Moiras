@@ -1,0 +1,5 @@
+<?php
+$resposta = array(
+    "a",
+    ""
+);
