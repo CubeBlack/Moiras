@@ -16,4 +16,7 @@ class view
   static function hr(){
     echo "<hr>";
   }
+  static function voltar(){
+    echo "<a href=\"../\">Voltar</a>";
+  }
 }

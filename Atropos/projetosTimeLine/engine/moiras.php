@@ -12,3 +12,8 @@ $proj->postagenAdd(
   já tinha inplementado a time-line, por perceber que é inportante um acompanhamento maior dos paços do andamento do projeto.
   Por enquanto, não quero parar para usar o Bnaco de dados, ja que isso é começar a usar o CLOTO. por enquando, continuar usando dessa forma."
 );
+$proj->postagenAdd(
+  "Não volta!",
+  "Segunda, 25 de maio de 2017",
+  "Ta chato, não ter o botão de voltar na Atropos/Time-line. Criar na classe view a função voltar"
+);
