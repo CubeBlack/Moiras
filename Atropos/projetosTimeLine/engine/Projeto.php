@@ -11,12 +11,12 @@ class Projeto
   {
     $this->name = $name;
   }
-  public function postagenadd($titulo = "[titulo]",$contudo = "[conteudo]"){
+  public function postagenadd($titulo = "[titulo]",$data = "[data]",$contudo = "[conteudo]"){
     if (!is_array($this->postagen)) {
-      $this->postagen[0] = new Postagem($titulo,$contudo);
+      $this->postagen[0] = new Postagem($titulo,$data,$contudo);
     }
     else {
-      array_unshift($this->postagen,new Postagem($titulo,$contudo));
+      array_unshift($this->postagen,new Postagem($titulo,$data,$contudo));
     }
   }
   public function name(){
