@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Moiras</title>
-    </head>
-    <body>
-        <h1>Porject Moiras</h1>
-        <hr>
-        <a href="Cloto/"><h2>&alpha;|Cloto</h2></a>
-        <p>Senhora do passado</p>
-        <hr>
-        <a href="Laquesis/"><h2>&mu;|Láquesis</h2></a>
-        <p>Senhora do preesente</p>
-        <hr>
-        <a href="Atropos/"><h2>&omega;|Atropos</h2></a>
-        <p>Senhora do futuro</p>
-        <hr><hr>
-        <a href="../">LimaServer</a> | by Daniel Lima
-    </body>
-</html>
+<?php
+require_once "comum.php";
+$page = Template();
+$page->TemplateLoad(array(
+  'exp' => "page.html",
+  'content'=>"content.option.html"
+));
+//---------
+$page->TemplateDefine(array(
+  "content.option.title"=>"Cloto",
+  "content.option.content"=>"banco de dados",
+  "content.option.link"=>"cloto.php"
+));
+$content = $page->TemplateExport("content");
+//
+$page->TemplateDefine(array(
+  "content.option.title"=>"Laqueses",
+  "content.option.content"=>"interação Humana",
+  "content.option.link"=>"laqueses.php"
+));
+$content .= $page->TemplateExport("content");
+//
+$page->TemplateDefine(array(
+  "content.option.title"=>"Atropos",
+  "content.option.content"=>"Gerenciamento",
+  "content.option.link"=>"cloto.php"
+));
+$content .= $page->TemplateExport("content");
+//---------------
+$page->TemplateDefine(array(
+  "page.title"=>"Moiras",
+  "page.content"=>$content
+));
+echo $page->TemplateExport('exp');

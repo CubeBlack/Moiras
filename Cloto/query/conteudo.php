@@ -1,5 +1,0 @@
-<?php
-$resposta = array(
-    "a",
-    ""
-);
