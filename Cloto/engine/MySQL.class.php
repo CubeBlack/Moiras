@@ -24,4 +24,13 @@
    {
     return MySQL::query("SELECT * FROM $table $parametro");
    }
+   static function insert($table,$valoresArr){
+     if(!is_array($valoresArr)) return;
+     foreach ($valoresArr as $key => $valor) {
+       $valores += "'$valor',";
+     }
+     echo $valores;
+     MySQL::Query("INSERT INTO  $table VALUES ");
+   }
+
  }

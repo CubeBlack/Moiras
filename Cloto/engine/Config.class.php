@@ -5,7 +5,7 @@
 class Config
 {
   const
-    db_shoerror=false,
+    showerror=true,
 
     db_host = "localhost",
     db_user = "root",
@@ -13,5 +13,4 @@ class Config
     db_name = "lima",
     db_table="cloto_data"
   ;
-
 }

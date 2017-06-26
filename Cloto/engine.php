@@ -1,5 +1,5 @@
 <?php
 function __autoload($className){
-  $url = "engine/$className.php";
+  $url = "engine/$className.class.php";
   require_once $url;
 }

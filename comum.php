@@ -5,9 +5,8 @@
   const template_path = "../Moiras/template/";
   const ClotoQueryUrl = "http://localhost/DanielLima/moiras/cloto/query.json.php";
 // --------------------------
-
-
 require_once "../PageEsy2/engine.php";
+$tem = Template();
 function Template()
 {
   $page = New PageEsy();
