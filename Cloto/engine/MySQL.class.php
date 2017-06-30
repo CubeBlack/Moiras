@@ -22,7 +22,8 @@
    }
    static function select($parametro="",$table=Config::db_table)
    {
-    return MySQL::query("SELECT * FROM $table $parametro");
+     $resposta = MySQL::query("SELECT * FROM $table $parametro");
+    return $resposta->fetchAll();
    }
    static function insert($table,$valoresArr){
      if(!is_array($valoresArr)) return;

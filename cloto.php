@@ -5,7 +5,18 @@ $tem->TemplateLoad(array(
   'blocks' => "contentBlocks.block.html",
 ));
 // -------------- blocks
-$respostaStr = file_get_contents(ClotoQueryUrl);
+$queryArr = array(
+  "header"=>array(
+    "type"=>"act",
+    "act"=>"search"
+  ),
+  "body"=>array(
+
+  )
+);
+echo $Url = ClotoQueryUrl."?query=".urlencode(json_encode($queryArr));
+$respostaStr = file_get_contents($queryUrl);
+var_dump($respostaStr);
 $conteudoObj = json_decode($respostaStr);
 $bloks="";
 foreach ($conteudoObj as $key => $value) {
