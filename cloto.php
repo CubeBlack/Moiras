@@ -14,18 +14,20 @@ $queryArr = array(
 
   )
 );
-echo $Url = ClotoQueryUrl."?query=".urlencode(json_encode($queryArr));
+
+$queryUrl = ClotoQueryUrl."?query=".urlencode(json_encode($queryArr));
 $respostaStr = file_get_contents($queryUrl);
-var_dump($respostaStr);
-$conteudoObj = json_decode($respostaStr);
+$conteudoObj = (array)json_decode($respostaStr);
+
 $bloks="";
-foreach ($conteudoObj as $key => $value) {
-  $tem->TemplateDefine(array(
-    "contentBlocks.blocks.title"=>$value->content,
-    "contentBlocks.blocks.keys"=>$value->key
-  ));
-  $bloks.=$conteudo=$tem->TemplateExport('blocks');
-}
+if(!empty($conteudoObj["body"]))
+  foreach ($conteudoObj["body"] as $key => $value) {
+    $tem->TemplateDefine(array(
+      "contentBlocks.blocks.title"=>$value->content,
+      "contentBlocks.blocks.keys"=>$value->key
+    ));
+    $bloks.=$conteudo=$tem->TemplateExport('blocks');
+  }
 $tem->TemplateDefine(array(
   "contentBlocks.blocks"=>$bloks
 ));

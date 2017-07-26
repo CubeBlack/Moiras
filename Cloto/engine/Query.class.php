@@ -23,20 +23,42 @@ class Query
 
   public function exec()
   {
+      $this->resposta = array(
+      "header"=>array(
+        "type"=>"null"
+      ),
+      "body"=>array()
+    );
+    $this->resposta["body"] = MySQL::select();
+
+    //$this->resposta = Query::nulo();
+    return;
+
     $f = "exec";
-    if(!is_array($this->query)) {$this->erro($f,"A query não é uma array"); return;}
-    if(!Query::hasHeader($this->query)) {Query::erro($f,"Header não encontrado, reveja a estrutura do query",$query); return;}
+    //
+    if(!is_array($this->query)) {
+      return Query::nulo();
+      $this->erro($f,"A query não é uma array"); return;
+    }
+    if(!Query::hasHeader($this->query)) {
+      return Query::nulo();
+      Query::erro($f,"Header não encontrado, reveja a estrutura do query",$this->query);
+      return;
+    }
     $this->hasType();
     return true;
   }
+
   public function hasHeader(){
     if(isset($this->query["header"]))
       return true;
   }
   public function hastype(){
+    /*
     switch ($this->query["header"]["type"]) {
       case 'act': $this->hasAct();
     }
+    */
   }
   public function hasAct(){
     switch ($this->query["header"]["act"]) {
@@ -61,7 +83,8 @@ class Query
     $retorno = array(
       "header"=>array(
         "type"=>"null"
-      )
+      ),
+      "body"=>array()
     );
     return $retorno;
   }
