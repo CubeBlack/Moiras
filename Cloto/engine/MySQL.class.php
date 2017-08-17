@@ -2,19 +2,80 @@
  /**
   *
   */
+global $config;
  class MySQL
  {
-   static function conect($dbHost=Config::db_host,$dbName=Config::db_name,$dbUsername=Config::db_user,$dbPassword=Config::db_password){
+   const
+    nTableData = "data",
+    nTableuser = "user"
+  ;
+   static function conect(
+     $dbHost="empty",
+     $dbUsername="empty",
+     $dbPassword="empty",
+     $dbName="empty"
+   ){
+     global $config;
+     if(
+       $dbHost=="empty" ||
+       $dbUsername=="empty" ||
+       $dbPassword=="empty"||
+       $dbName=="empty"
+     ){
+       $dbHost=$config->db_host;
+       $dbName=$config->db_name;
+      $dbUsername=$config->db_user;
+       $dbPassword=$config->db_password;
+     }
       try {
         $conn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUsername, $dbPassword);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       } catch(PDOException $e) {
-        if (Config::db_showerror)
-          echo 'ERROR: ' . $e->getMessage();
+        if ($config->showerror)
+          echo
+            'ERROR: ' .
+            $e->getMessage() . "\n" .
+            "host: " . $dbHost .
+            ", dbName: " . $dbName .
+            ", dbUsername: " . $dbUsername
+          ;
         return;
       }
       return $conn;
+   }
+   static function tableCreat(
+     $dbHost="empty",
+     $dbUsername="empty",
+     $dbPassword="empty",
+     $dbName="empty"
+   ){
+     global $config;
+     if(
+       $dbHost=="empty" ||
+       $dbUsername=="empty" ||
+       $dbPassword=="empty"||
+       $dbName=="empty"
+     ){
+       $dbHost=$config->db_host;
+       $dbName=$config->db_name;
+      $dbUsername=$config->db_user;
+       $dbPassword=$config->db_password;
+     }
+     $tableName = $config->db_prefix . MySQL::nTableData;
+     MySQL::query("DROP TABLE {$tableName};");
+     $query ="
+     CREATE TABLE IF NOT EXISTS {$tableName} (
+       `id` int(8) NOT NULL AUTO_INCREMENT,
+       `data` varchar(500) NOT NULL,
+       PRIMARY KEY (`id`)
+     ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+     ";
+    return MySQL::query($query);
+
+   }
+   static function tableConfig(){
+     return false;
    }
    static function query($query){
      $conn = Mysql::conect();
