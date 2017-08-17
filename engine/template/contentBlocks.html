@@ -1,0 +1,52 @@
+<!--
+  begin contentBlocks
+-->
+<style media="screen">
+  section{
+    overflow: auto;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;
+  }
+  num{
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
+  section ul{
+    position: relative;
+    padding: 0;
+  }
+  section li{
+    display: grid;
+    float: left;
+    border: 1px solid black;
+    margin: 3px;
+  }
+  nav{
+    border: none;
+    padding-left: 10px;
+  }
+</style>
+<section>
+  <form class="" action="?serch=#" method="post">
+    <label for="">Serch</label>
+    <input type="text" name="" value="">
+    <input type="submit" name="" value="Go">
+  </form>
+</section>
+<nav>
+  /Search:none/
+</nav>
+<section>
+  <num>
+    1 | 2 | 3 ... 9 | 10 | 11
+  </num>
+  <ul>{contentBlocks.blocks}</ul>
+  <num>
+    1 | 2 | 3 ... 9 | 10 | 11
+  </num>
+</section>
+<!--
+  end contentBlocks
+-->
