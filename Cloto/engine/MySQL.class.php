@@ -81,8 +81,9 @@ global $config;
      $conn = Mysql::conect();
      return $conn->query($query);
    }
-   static function select($parametro="",$table=Config::db_table)
+   static function select($table,$parametro)
    {
+
      $resposta = MySQL::query("SELECT * FROM $table $parametro");
     return $resposta->fetchAll();
    }

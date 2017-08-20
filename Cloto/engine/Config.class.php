@@ -45,4 +45,7 @@ class Config
   static function configured(){
     return true;
   }
+  public function nomeTData(){
+    return $this->db_prefix . MySQL::nTableData;
+  }
 }

@@ -2,6 +2,7 @@
 /**
  *
  */
+
 class Query
 {
   public $query;
@@ -23,13 +24,14 @@ class Query
 
   public function exec()
   {
+    global $config;
       $this->resposta = array(
       "header"=>array(
         "type"=>"null"
       ),
       "body"=>array()
     );
-    $this->resposta["body"] = MySQL::select();
+    $this->resposta["body"] = MySQL::select($config->nomeTData(),"");
 
     //$this->resposta = Query::nulo();
     return;
