@@ -26,7 +26,7 @@ if(
   echo "\nDados insuficientes para configurar";
   goto fim;
 }
-
+var_dump($_REQUEST);
 $host = $_REQUEST["host"];
 $user = $_REQUEST["user"];
 $pass = $_REQUEST["pass"];
@@ -55,7 +55,7 @@ fclose($fp);
 <?php
 //----------------------------- Criar tabelas
 $config = new config();
-MySQL::tableCreat();
+MySQL::tableCreat($host, $user, $pass, $dbname);
 ?>
 ** Criadas tabelas
 <?php

@@ -10,4 +10,4 @@ $queryObj = (array)json_decode($queryStr);
 $chamada = new Query();
 $chamada->query = $queryObj;
 $chamada->exec();
-echo json_encode($chamada->resposta, JSON_FORCE_OBJECT);
+echo json_encode($chamada->resposta);

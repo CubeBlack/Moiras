@@ -44,26 +44,13 @@ global $config;
       }
       return $conn;
    }
-   static function tableCreat(
-     $dbHost="empty",
-     $dbUsername="empty",
-     $dbPassword="empty",
-     $dbName="empty"
-   ){
+   static function tableCreat($dbHost , $dbUsername="empty",$dbPassword,$dbName){
+
      global $config;
-     if(
-       $dbHost=="empty" ||
-       $dbUsername=="empty" ||
-       $dbPassword=="empty"||
-       $dbName=="empty"
-     ){
-       $dbHost=$config->db_host;
-       $dbName=$config->db_name;
-      $dbUsername=$config->db_user;
-       $dbPassword=$config->db_password;
-     }
      $tableName = $config->db_prefix . MySQL::nTableData;
-     MySQL::query("DROP TABLE {$tableName};");
+     $query = "DROP TABLE IF EXISTS {$tableName};";
+     //MySQL::query("DROP TABLE {$tableName};");
+     MySQL::query($query);
      $query ="
      CREATE TABLE IF NOT EXISTS {$tableName} (
        `id` int(8) NOT NULL AUTO_INCREMENT,

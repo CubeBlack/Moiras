@@ -14,6 +14,7 @@ class Config
     $db_prefix = "cloto_"
   ;
   function __construct(){
+    #falta verificar se o arquivo existe
     $fileContent =  file_get_contents(realpath(dirname(__FILE__))."/config.ini");
     $fileLines = explode("\n",$fileContent);
     foreach ($fileLines as $key => $line) {
