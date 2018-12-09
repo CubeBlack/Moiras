@@ -6,6 +6,7 @@ class Terminal{
 		$this->echo = $echo;
 	}
 	public function chamada($com) {
+        //var_dump($com);
 		$com = Terminal::parce($com);
 		$com = Terminal::call($com,$this->vars);
 		if($this->echo) {
@@ -164,6 +165,7 @@ class Terminal{
 			//executar funcao
 			
 			// ----functions
+            //echo ""
 			$uNod =  $com["nodes"][sizeof($com["nodes"])-1];
 			if($com["tipo"] == "funcion") {
 				switch(sizeof($com["params"])) {

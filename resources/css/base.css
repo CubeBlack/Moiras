@@ -2,6 +2,10 @@
 	margin:0;
 	padding:0;
 }
+a{
+    text-decoration: none;
+    color: blue;
+}
 a:hover{
 	color:red;
 	cursor:pointer;
@@ -24,7 +28,6 @@ header{
 	border-bottom:1px solid black;
 }
 header h1{
-	font-size:0px;
 	display:inline;
 	padding-right:20px;
 }
@@ -100,7 +103,8 @@ footer{
 	display:block;
 	width:100%;
 	border-top:1px solid black;
-	float:right;
+	
+    text-align: center;
 }
 .popUP-true{
 	display:block;

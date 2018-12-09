@@ -41,6 +41,9 @@ class Config{
 		return "ok";
 
 	}
+    public function dump(){
+        ///
+    }
 	public function help(){
 		return <<<'EOT'
 >> class Config(config)

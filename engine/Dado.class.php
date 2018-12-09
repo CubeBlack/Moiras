@@ -106,9 +106,11 @@ class Dado{
 	return $dado;
 	}
     function dump(){
-        header("Content-Type: text/plain");
-        header('Content-Disposition: attachment; filename=moiras-cloto-server[dump].txt');
-header('Pragma: no-cache');
+        //header('Content-Type: text/html; charset=utf-8');
+        header("Content-Type: text/plain; charset=utf-8");
+        $time = time();
+        header("Content-Disposition: attachment; filename=cloto[$time].clotoScript");
+        header('Pragma: no-cache');
         global $user, $db;
         $sql = "SELECT * FROM `cloto_dados` where `user` = {$user->id} ";
         $dados = $db->query($sql);

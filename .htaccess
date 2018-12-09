@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteEngine on
+RewriteRule ^([a-z,0-9,A-Z,_-]+)$ ./$1.php
+
+RewriteRule inicio index.php
+
+RewriteEngine On
+ErrorDocument 404 "404: Amanda say - Pagina não encontrada"

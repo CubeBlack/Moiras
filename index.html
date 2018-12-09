@@ -1,47 +1,112 @@
 <!DOCTYPE HTML>
-<!--
-	Worwerm n'ao funciona se a horigem da pagina for localhost
--->
 <html>
-	<head>
-		<title>M[Cloto.DbView]</title>
-		<meta charset="utf-8">
-		<!-- meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" --> 
-		<link rel="stylesheet" href="resources/css/base.css">
-		<script src="https://cubeblack.github.io/Teminal/v002.1/terminal_v2.1.class.js" charset="utf-8"></script>
-		<script src="resources/js/page.js" charset="utf-8"></script>
-		<script src="resources/js/newNota.js" charset="utf-8"></script>
-		<script src="resources/js/edit.js" charset="utf-8"></script>
-		<script src="resources/js/search.js" charset="utf-8"></script>
-		<script src="resources/js/user.js" charset="utf-8"></script>
-	</head>
-	<body onload="page.loaded()">
-		<section id="content" ></section>
-		<header>
-			<h1>
-				<img id="header-logo" src="resources/img/logo3.svg">
-				M[Cloto.DbView]
-			</h1>
-			<nav> 
-				<input type="text" onkeyup="page.iSearch()" id="searchInput" placeholder="Pesquisa">
-				<a onclick="page.setQuery('');">X</a>
-			</nav>
-		</header>
-		<user>
-			<img onclick="user.perfil()" src="resources/img/perfil.svg" alt="Perfil">
-		<user>
-		<nav class="submenu" >
-			<a onclick="page.search()">Update</a>
-			<span id="aSearch"  ></span>
-		</nav>
-		<footer>
-			<a href="#">Terminal</a>
-		</footer>
-		<div id="popUp" class="popUP-false">
-			<div id="popUp-base" onclick="page.popUp()"></div>
-			<div id="popUp-content" >
-			</div>
-		</div>
-	</body>
-	
+
+<head>
+    <title>[Moiras]Inicio</title>
+    <meta charset="utf-8">
+    <!-- meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" -->
+    <link rel="stylesheet" href="resources/css/base.css">
+    <script src="resources/js/terminal_v2.1.class.js" charset="utf-8"></script>
+
+</head>
+
+<body onload="page.loaded()">
+
+    <!-- Templates -->
+    <template id="dadoFormNovo">
+        <div id="tNotaCabecario"></div>
+        <form action="dado.novo.php" method="post">
+            <label>Dado</label>
+            <textarea id="fNotaDado"></textarea>
+
+            <label>Tags</label>
+            <textarea id="fNotaTag"></textarea>
+            <input id="fNotaAplic" onclick="" value="Salvar" type="submit">
+            <input id="fNotaAplic" onclick="page.popUp()" value="Cancelar" type="button">
+        </form>
+    </template>
+        <!-- --------- -->
+    <template id="formBeckup">
+        <h1>Restaurar</h1>
+        <form action="clotoScript.php" enctype="multipart/form-data" method="post">
+            <p>
+                <label>Arquivo .clotoScrip</label>
+                <input type="file" name="clotoScript">
+            </p>
+            <p>
+                <input type="checkbox" name="apagar" checked>
+                <label>Apagar dados anteriores</label>
+            </p>
+            <p>
+                <input type="submit" value="Executar">
+            </p>
+            
+            <input type="hidden" name="retorno" value="./">
+        </form>
+        <hr>
+        <h1>Beckup</h1>
+        <p>Criar arquivo .clotoScrip com os dados do banco  atual.</p>
+        <p>
+            <input type="button" onclick="page.beckup();" value="Executar">
+        </p>
+        <hr>
+        <input id="fNotaAplic" onclick="page.popUp()" value="Cancelar" type="button">
+    </template>
+        <!-- --------- -->
+    <template id="tConfig">
+        <h1>Configuração</h1>
+        <ul>
+            <li><a onClick="page.backupOpen();">Backup e restauração</a></li>
+            <li><a onclick="page.config();">Usuario</a></li>
+        </ul>
+        <input id="fNotaAplic" onclick="page.popUp()" value="Cancelar" type="button">
+    </template>
+    <template id="perfil">
+        <!-- --------- -->
+    </template>
+    <template id="userEdit">
+        editar usuario
+        <h1>Editar Usuario</h1>
+        <form>
+            <label>Nick</label>
+            <label>Email</label>
+            <label>PassWord</label>
+            
+            
+            
+        </form>
+    </template>
+    <!-- --------- -->
+    <section id="content"></section>
+    <header>
+        <h1>[<a href="">Moiras</a>]Inicio</h1>
+        <nav>
+            <input type="text" onkeyup="page.iSearch()" id="searchInput" placeholder="Pesquisa">
+            <a onclick="page.setQuery('');">X</a>
+        </nav>
+    </header>
+    <user>
+        <img onclick="user.perfil()" src="resources/img/perfil.svg" alt="Perfil">
+    </user>
+    <nav class="submenu">
+        <a onclick="page.search()">Update</a>
+        <span id="aSearch"></span>
+    </nav>
+    <footer>
+        [<a onclick="page.config();">Config</a>]
+        [<a href="terminal/">Terminal</a>]
+        [<a href="">update</a>(<label> / </label>)]
+    </footer>
+    <div id="popUp" class="popUP-false">
+        <div id="popUp-base" onclick="page.popUp()"></div>
+        <div id="popUp-content">
+        </div>
+    </div>
+    <script src="resources/js/page.js" charset="utf-8"></script>
+    <script src="resources/js/newNota.js" charset="utf-8"></script>
+    <script src="resources/js/edit.js" charset="utf-8"></script>
+    <script src="resources/js/search.js" charset="utf-8"></script>
+    <script src="resources/js/user.js" charset="utf-8"></script>
+</body>
+
 </html>

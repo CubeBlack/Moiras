@@ -1,4 +1,4 @@
-server = "http://molly/moiras-cloto-server/server-terminal.php";
+server = "http://molly/moiras/server-terminal.php";
 pre = "";
 pos = "";
 label = "Moiras-Cloto";
